@@ -754,7 +754,13 @@ Componentes-chave:
 
 **Daniel Martins França**  
 
-*Projeto desenvolvido com foco em **engenharia de dados**, aplicando boas práticas de ETL, versionamento de dados e arquitetura em camadas (Bronze).*
+*Projeto desenvolvido com foco em **engenharia de dados**, aplicando boas práticas de ETL, versionamento de dados e arquitetura em camadas*
 
 ---
+
+## 📬 Contato:
+
+- 📧 Email: [f.daniel.m@gmail.com](mailto:f.daniel.m@gmail.com)  
+- 💼 LinkedIn: [www.linkedin.com/in/danixdev](https://www.linkedin.com/in/danixdev)  
+- 📁 Trabalhos : [www,danixdev.blogspot.com/2026/02/etl-ipca-e-commodity-boi-gordo.html](https://danixdev.blogspot.com/2026/02/etl-ipca-e-commodity-boi-gordo.html)
 
