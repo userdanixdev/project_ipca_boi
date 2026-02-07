@@ -7,7 +7,7 @@
 ![Delta Lake](https://img.shields.io/badge/delta-lake-+lightblue)
 ![Status](https://img.shields.io/badge/status-professional-green)
 
-Pipeline ETL desenvolvido para ingestão, padronização e versionamento de dados econômicos (IPCA e Boi Gordo), utilizando **Apache Spark**, **Delta Lake** e **Python** em ambiente local (Windows).
+*Pipeline ETL desenvolvido para ingestão, padronização e versionamento de dados econômicos (IPCA e Boi Gordo), utilizando **Apache Spark**, **Delta Lake** e **Python** em ambiente local (Windows).*
 
 ---
 
@@ -53,7 +53,7 @@ etl-ipca-boi-gordo/
 
 ### Compatibilidade de Versões — Apache Spark
 
-Este documento descreve as **versões recomendadas e compatíveis** para executar o Apache Spark de forma estável, especialmente em ambientes Windows com Python (ETL / Data Engineering).
+*Este documento descreve as **versões recomendadas e compatíveis** para executar o Apache Spark de forma estável, especialmente em ambientes Windows com Python (ETL / Data Engineering).*
 
 ---
 
@@ -61,7 +61,7 @@ Este documento descreve as **versões recomendadas e compatíveis** para executa
 
 ### Java (Obrigatório)
 
-O Apache Spark **depende diretamente da JVM**. Nem toda versão do Java é compatível.
+*O Apache Spark **depende diretamente da JVM**. Nem toda versão do Java é compatível.*
 
 | Java | Status | Observações |
 |-----|-------|-------------|
@@ -743,11 +743,3 @@ Componentes-chave:
 
 ---
 
-## 🔗 Links Úteis
-
-- Apache Spark: https://spark.apache.org/
-- Delta Lake: https://delta.io/
-- Pandas: https://pandas.pydata.org/
-- Parquet: https://parquet.apache.org/
-- Python: https://www.python.org/
-- Java 17 (Eclipse Temurin): https://adoptium.net/
