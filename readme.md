@@ -5,11 +5,20 @@
 ![Python](https://img.shields.io/badge/python-3.10+-blue)
 ![Spark](https://img.shields.io/badge/spark-pyspark-orange)
 ![Delta Lake](https://img.shields.io/badge/delta-lake-+lightblue)
+[![Architecture](https://img.shields.io/badge/Architecture-Medallion-2E7D32)](https://databricks.com/glossary/medallion-architecture)
+[![Conda](https://img.shields.io/badge/Conda-Environment-44A833?logo=anaconda&logoColor=white)](https://docs.conda.io/)
+[![Windows](https://img.shields.io/badge/OS-Windows-0078D6?logo=windows&logoColor=white)](https://www.microsoft.com/windows)
 ![Status](https://img.shields.io/badge/status-professional-green)
 
 *Pipeline ETL desenvolvido para ingestão, padronização e versionamento de dados econômicos (IPCA e Boi Gordo), utilizando **Apache Spark**, **Delta Lake** e **Python** em ambiente local (Windows).*
 
 ---
+
+Este projeto implementa um pipeline ETL analítico para ingestão, padronização e análise de dados econômicos do IPCA e do preço do boi gordo, com foco em qualidade de dados, rastreabilidade e geração de insights analíticos.
+
+A solução foi construída utilizando Python, Apache Spark (PySpark) e Delta Lake, adotando a arquitetura Medallion (Bronze, Silver e Gold) para garantir organização, versionamento e evolução controlada dos dados.
+
+De forma prática o projeto mostra a construição de um pipeline ETL moderno para dados econômicos, explorando boas práticas de engenharia de dados, processamento distribuído com Spark e análises comparativas entre inflação e commodity agropecuária.
 
 ## 🗂️ Estrutura do Projeto
 
