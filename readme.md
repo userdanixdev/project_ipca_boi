@@ -626,6 +626,17 @@ Componentes-chave:
 - Execução local (standalone)
 
 ---
+
+## 🔗 Links Úteis
+
+- Apache Spark: https://spark.apache.org/
+- Delta Lake: https://delta.io/
+- Pandas: https://pandas.pydata.org/
+- Parquet: https://parquet.apache.org/
+- Python: https://www.python.org/
+- Java 17 (Eclipse Temurin): https://adoptium.net/
+
+
 ## Diagrama Ilustrativo via Excalidraw
 
 ![Diagrama do projeto](docs/diagrama_ilustrativo_ipca_boi.png)
