@@ -113,6 +113,8 @@ Delta-spark 3.5.1
 Conda / venv
 Windows ou Linux
 ```
+### Pipeline de ingestão de dados XLS -> CSV
+
 ```
 etl-ipca-boi-gordo/
 │
@@ -195,12 +197,14 @@ Arquivo: `data_source/csv/_manifest.csv` registra:
 
 ```ingest_bronze_delta.py```
 
-### Objetivo
-Ingerir os dados **canônicos em CSV** (`data_source/csv`) para a **camada Bronze** do lakehouse em **formato Delta**, garantindo rastreabilidade, idempotência e base sólida para Silver/Gold na arquitetura medalhão.
+### Objetivo:
+
+Ingerir os dados **CSV** (`data_source/csv`) para a **camada Bronze** do lakehouse em **formato Delta**, garantindo rastreabilidade, idempotência e base sólida para Silver/Gold na arquitetura medalhão.
 
 ---
 
-### Papel na arquitetura medalhão
+### Papel na arquitetura medalhão:
+
 - **Data Source**: dados já normalizados (CSV).
 - **Bronze (este arquivo)**: persistência confiável em Delta, com histórico e linhagem.
 - **Silver/Gold**: camadas futuras para regras de negócio e agregações.
@@ -255,7 +259,8 @@ Ingerir os dados **canônicos em CSV** (`data_source/csv`) para a **camada Bronz
 ## Resultado final:
 - Tabela Delta em: `lakehouse/bronze/boi_gordo/`
 
-### Com:
+> Com:
+
 - Histórico completo
 - Linhagem por arquivo
 - Idempotência garantida
@@ -263,7 +268,8 @@ Ingerir os dados **canônicos em CSV** (`data_source/csv`) para a **camada Bronz
 
 ---
 
-## Benefícios de engenharia
+## Benefícios de engenharia:
+
 - Evita reprocessamento acidental
 - Facilita auditoria e reprocessos
 - Isola instabilidades da fonte
@@ -282,13 +288,13 @@ lakehouse/
             └── ...
 
 
-- Dessa forma temos o Delta Lake está corretamente habilitado
+- Dessa forma temos o Delta Lake está corretamente habilitado.
 - Particionada por ano e mês.
 - O pipeline idempotente (rodar de novo não duplica)
 - Design está alinhado à arquitetura medalhão
  ```           
 
-## Ingestão Bronze — IPCA (BCB/SGS) em Delta Lake
+## Ingestão Bronze — Pipeline IPCA (BCB/SGS) em Delta Lake
 
 O script (`src/bronze/ingest_ipca_bcb_bronze_delta.py`) extrai o IPCA diretamente da API pública do Banco Central (SGS) e grava os dados na camada **Bronze** do lakehouse em **formato Delta**, seguindo o padrão da arquitetura medalhão (Bronze → Silver → Gold).
 
@@ -304,11 +310,13 @@ O script (`src/bronze/ingest_ipca_bcb_bronze_delta.py`) extrai o IPCA diretament
   - `lakehouse/bronze/ipca/_delta_log`
   - `lakehouse/bronze/ipca/ano=YYYY/mes=MM`
 
-### Pré-requisitos
+### Pré-requisitos:
+
 - Ambiente Python ativo (ex.: `conda activate env_ipca_boi_2`)
 - Dependências instaladas: `pyspark` e `delta-spark` (**Versões específicas**)
 
 ### Execução:
+
 Na raiz do projeto:
 
 ```
@@ -324,11 +332,8 @@ Entretanto, a CEPEA não disponibiliza uma API pública para consumo automatizad
 ## 🏛️ Fonte oficial
 
 Instituição: Banco Central do Brasil
-
 API: SGS
-
 Série IPCA mensal (%): 433
-
 Endpoint com filtro por data:
 
 https://api.bcb.gov.br/dados/serie/bcdata.sgs.433/dados
@@ -357,7 +362,7 @@ O site da CEPEA utiliza mecanismos modernos de proteção contra automações, m
 
 Esses mecanismos tornam inviável a extração confiável e contínua de dados via scraping tradicional.
 
-### 🧪 Tentativas Técnicas Avaliadas
+### Tentativas Técnicas Avaliadas
 
 Antes da definição da arquitetura final, foram consideradas e avaliadas as seguintes abordagens:
 
@@ -473,6 +478,7 @@ variacao_ipca	|double|	Variação percentual mensal do IPCA
 O valor anterior é obtido via ```lag()``` ordenado pela coluna data.
 
 ## Tabela gold.analitico:
+
 > Descrição
 
 Tabela final da camada Gold, projetada para dashboards e análises econômicas.
@@ -541,7 +547,7 @@ consultas exploratórias e integrações externas
 
 Dessa forma a camada Gold garante:
 
--  Grão temporal único (mensal)
+- Grão temporal único (mensal)
 - Chave de junção consistente
 - Dados conformados
 - Regras de negócio explícitas
@@ -560,7 +566,7 @@ Dessa forma a camada Gold garante:
 
 ## 🛠️ Ferramentas Utilizadas
 
-### 🔥 Apache Spark
+### Apache Spark
 Framework de processamento distribuído em larga escala, utilizado como motor principal de processamento de dados do projeto.  
 Permite leitura, transformação e escrita eficiente de grandes volumes de dados.
 
@@ -569,7 +575,7 @@ Permite leitura, transformação e escrita eficiente de grandes volumes de dados
 
 ---
 
-### 🗄️ Delta Lake
+### Delta Lake
 Camada de armazenamento transacional sobre arquivos Parquet, usada na **camada Bronze** para garantir:
 - ACID transactions  
 - Versionamento de dados  
@@ -580,7 +586,7 @@ Camada de armazenamento transacional sobre arquivos Parquet, usada na **camada B
 
 ---
 
-### 🐼 Pandas
+### Pandas
 Biblioteca Python utilizada no pré-processamento dos arquivos `.xls`, especialmente para:
 - Leitura de planilhas Excel  
 - Padronização de nomes de colunas  
@@ -590,14 +596,14 @@ Biblioteca Python utilizada no pré-processamento dos arquivos `.xls`, especialm
 
 ---
 
-### 📁 Parquet
+### Parquet
 Formato de arquivo colunar otimizado para analytics, usado como padrão de armazenamento intermediário e final.
 
 - Especificação: https://parquet.apache.org/
 
 ---
 
-### 🐍 Python
+### Python
 Linguagem principal do projeto, responsável por:
 - Orquestração do pipeline ETL  
 - Manipulação de arquivos  
@@ -608,7 +614,7 @@ Linguagem principal do projeto, responsável por:
 
 ---
 
-### ☕ Java (JDK 17)
+### Java (JDK 17)
 Utilizado como dependência obrigatória para execução do Apache Spark.  
 O projeto foi configurado para rodar com **Java 17 (LTS)**, garantindo compatibilidade e estabilidade.
 
@@ -617,7 +623,7 @@ O projeto foi configurado para rodar com **Java 17 (LTS)**, garantindo compatibi
 
 ---
 
-### 🧱 Delta + Spark no Windows
+### Delta + Spark no Windows
 Ambiente local configurado no Windows para desenvolvimento e testes do pipeline ETL.
 
 Componentes-chave:
