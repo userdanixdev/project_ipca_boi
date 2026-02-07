@@ -1,0 +1,111 @@
+############################################
+# Python
+############################################
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.eggs/
+build/
+dist/
+
+############################################
+# Virtual Environments
+############################################
+venv/
+.venv/
+env/
+conda-env/
+*.env
+
+############################################
+# Jupyter / Notebooks
+############################################
+.ipynb_checkpoints/
+*.nbconvert.ipynb
+
+############################################
+# Spark / Delta Lake
+############################################
+# Delta transaction logs (dados locais não versionados)
+_delta_log/
+
+# Spark temporary files
+spark-warehouse/
+derby.log
+metastore_db/
+
+############################################
+# Lakehouse / Data (NÃO versionar dados)
+############################################
+# Camadas de dados
+data_source/
+lakehouse/
+
+# Caso queira versionar apenas estrutura:
+!data_source/.gitkeep
+!lakehouse/.gitkeep
+
+############################################
+# CSV / XLS temporários
+############################################
+*.csv
+*.xls
+*.xlsx
+*.parquet
+
+# Manifest gerado automaticamente
+_manifest.csv
+
+############################################
+# Logs
+############################################
+*.log
+logs/
+
+############################################
+# OS - Windows
+############################################
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+ehthumbs.db
+
+############################################
+# IDEs / Editors
+############################################
+.vscode/
+.idea/
+*.iml
+
+############################################
+# Git
+############################################
+*.orig
+*.rej
+
+############################################
+# Secrets / Credenciais
+############################################
+*.key
+*.pem
+*.crt
+*.pfx
+credentials.json
+secrets.yaml
+secrets.yml
+
+############################################
+# Testes / Coverage
+############################################
+.coverage
+htmlcov/
+.pytest_cache/
+
+############################################
+# Outros
+############################################
+.DS_Store
+ambientes_virtuais

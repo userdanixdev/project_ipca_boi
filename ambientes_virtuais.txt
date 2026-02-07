@@ -1,0 +1,100 @@
+Para criação de um ambiente novo com conda:
+
+conda create -n nome_ambiente
+
+Verfiicar ambientes no conda:
+
+1. conda env list
+Atenção: O ambiente ativo aparece com *.
+2. No caso já tinha um ambiente criado. Para ativá-lo:
+
+conda activate nome_do_ambiente
+
+Caso o Conda não 'acorde' , execute: 'conda init' e reinicie o terminal.
+Assim, ele voltará automaticamente com o ambiente virtual.
+
+É possível garantir que o Jupyter use o ambiente virtual criado renomeando o nome do kernel:
+
+pip install ipykernel
+python -m ipykernel install --user --name nome_ambiente_virtual --display-name "nome_kernel"
+
+Instale as dependências necessárias dentro do ambiente virtual:
+
+pip install nome_dependencia
+
+Verifique a versão do Python para não ter problemas futuros.
+A melhor versão aceita com slqalchemy é a Python = 3.11
+
+Atenção:
+
+Para projetos de banco de dados relacionais, não é recomendado o duckdb.
+
+Para remover ambientes virtual fantasmas ativados automaticamente pelo Conda:
+
+1. Desative o ambiente fanstama (estava em outro projeto que foi deletado e o Conda acha que existe ainda)
+
+conda deactivate
+
+2. Remova:
+
+conda env remove -n nome_do_ambiente virtual
+
+No meu caso:
+
+conda env remove -n ambiente_virtual
+
+Desative auto-ativação do Conda (boa prática):
+
+conda config --set auto_activate_base false
+
+Agora o Conda não entra em nenhum ambiente sem você pedir. (Opcional)
+
+Boas práticas com Conda em pasta local:
+
+Use --prefix sempre que quiser ambiente local
+
+conda create --prefix .conda python=3.11
+
+Nunca delete a pasta manualmente, use:
+
+conda env remove --prefix nome_do_ambiente
+
+Adicione no .gitignore:
+
+.nome_do_ambiente/
+
+Para ativar o ambiente virtual:
+
+conda activate .\.nome_do_ambiente
+
+Exportar dependências (acadêmico / profissional):
+
+conda env export --prefix .conda > environment.yml
+
+Para recriar depois:
+
+conda env create --prefix .conda -f environment.yml
+
+Ações recomendadas:
+
+Crie o ambiente com nome 'ambiente_cotacoes' e já defina a versão do Python:
+
+conda create -n ambiente_cotacoes python=3.10
+
+Logo:
+
+conda activate ambiente_cotacoes
+
+Como criar o ambiente do zero:
+Ou, se já existe e você quer alinhar:
+
+conda env update -f environment.yml --prune
+
+conda env update \
+  --environment-spec environment.yml \
+  -f environment.yml \
+  --prune
+
+Ou em uma linha: conda env update --environment-spec environment.yml -f environment.yml --prune
+
+
