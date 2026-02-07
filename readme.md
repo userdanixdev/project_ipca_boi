@@ -628,7 +628,7 @@ Componentes-chave:
 ---
 ## Diagrama Ilustrativo via Excalidraw
 
-![images/diagrama_ilustrativo.png](diagrama_ilustrativo_ipca_boi.png)
+![Diagrama do projeto](docs/diagrama_ilustrativo_ipca_boi.png)
 
 ## Diagrama conceitual:
 
